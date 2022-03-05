@@ -1,6 +1,7 @@
 package io.richie;
 
 import io.richie.runners.DependencyInjectedRunner;
+import io.richie.runners.SpringRunner;
 import io.richie.runners.TightlyCoupledRunner;
 
 public class Main {
@@ -14,6 +15,12 @@ public class Main {
         determineWhichRunnerToUse(runnerArg);
     }
 
+    /**
+     * Because we're showing 3 ways to create and run an application
+     * we want a method to use them interchangeably
+     *
+     * @param runnerArg the type of runner you want
+     */
     private static void determineWhichRunnerToUse(String runnerArg) {
         switch (runnerArg) {
             case "-t":
@@ -21,6 +28,9 @@ public class Main {
                 break;
             case "-d":
                 new DependencyInjectedRunner().run();
+                break;
+            case "-s":
+                new SpringRunner().run();
                 break;
             default:
                 System.out.println("Not Ready yet");

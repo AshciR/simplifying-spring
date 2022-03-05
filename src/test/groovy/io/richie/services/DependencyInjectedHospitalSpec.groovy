@@ -5,7 +5,6 @@ import spock.lang.Specification
 
 class DependencyInjectedHospitalSpec extends Specification {
 
-
     def "Hospital should operate as expected"() {
 
         given: 'We have a doctor who can practice'

@@ -18,6 +18,7 @@ public class DependencyInjectedRunner implements Runner {
         // and tracking the dependencies become unwieldy.
         // In our case here, all our dependencies will be managed
         // by this class.
+        // In some sense, we can consider this the CONTEXT for our APPLICATION.
         Doctor surgeon = new Surgeon();
         DependencyInjectedHospital hospitalService = new DependencyInjectedHospital(surgeon);
 
