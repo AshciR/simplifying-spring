@@ -10,6 +10,6 @@ public class TightlyCoupledRunner implements Runner {
     @Override
     public void run() {
         this.hospitalService = new TightlyCoupledHospital();
-        System.out.println(this.hospitalService.run());
+        System.out.println(this.hospitalService.operateHospital());
     }
 }

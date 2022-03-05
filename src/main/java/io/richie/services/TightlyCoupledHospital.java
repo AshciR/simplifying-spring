@@ -20,7 +20,7 @@ public class TightlyCoupledHospital implements HospitalService {
     }
 
     @Override
-    public String run() {
+    public String operateHospital() {
         final String hospitalStatus = this.getClass().getSimpleName() + " is open. ";
         return hospitalStatus + "The " + this.doctor.practice();
     }
