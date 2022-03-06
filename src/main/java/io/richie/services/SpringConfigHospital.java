@@ -6,13 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * We're going to let Spring handle the instantiation of this hospital
- * and its dependencies.
+ * and its dependencies via an explicit config file
+ *
+ * @see io.richie.configs.ExplicitHospitalConfig
  */
-public class SpringHospital implements HospitalService {
+public class SpringConfigHospital implements HospitalService {
 
     private final Doctor doctor;
 
-    // @Autowire is how we tell the Spring framework
+    // @Autowired is how we tell the Spring framework
     // "Hey, since you're managing the lives of all these objects
     // INJECT the Doctor we're using for our project."
     //
@@ -21,7 +23,7 @@ public class SpringHospital implements HospitalService {
     // 2. Setter based (Ok)
     // 3. Field based (Bad practice)
     @Autowired
-    public SpringHospital(Doctor doctor) {
+    public SpringConfigHospital(Doctor doctor) {
         this.doctor = doctor;
     }
 

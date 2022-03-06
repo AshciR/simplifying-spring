@@ -17,7 +17,7 @@ import spock.lang.Specification
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ExplicitHospitalConfig.class)
-class SpringHospitalIntegrationSpec extends Specification {
+class SpringConfigHospitalIntegrationSpec extends Specification {
 
     // We said earlier that we should avoid field injection
     // but we have to make an exception for Spock specifications
@@ -28,6 +28,7 @@ class SpringHospitalIntegrationSpec extends Specification {
     def "The Hospital should be autowired"() {
         expect: 'The hospital service to be autowired'
         null != hospitalService
+        SpringConfigHospital.class == hospitalService.class
     }
 
     def "Hospital should operate as expected"() {
@@ -41,7 +42,7 @@ class SpringHospitalIntegrationSpec extends Specification {
         String actualHospitalStatus = hospitalService.operateHospital()
 
         then: 'The hospital should function correctly'
-        final String expectedStatus = 'SpringHospital is open. The PrimaryCareProvider is doing a checkup'
+        final String expectedStatus = 'SpringConfigHospital is open. The PrimaryCareProvider is doing a checkup'
         expectedStatus == actualHospitalStatus
 
     }

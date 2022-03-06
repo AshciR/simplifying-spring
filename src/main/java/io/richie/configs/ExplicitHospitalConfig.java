@@ -4,7 +4,7 @@ import io.richie.domains.Doctor;
 import io.richie.domains.PrimaryCareProvider;
 import io.richie.domains.Surgeon;
 import io.richie.services.HospitalService;
-import io.richie.services.SpringHospital;
+import io.richie.services.SpringConfigHospital;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -70,7 +70,7 @@ public class ExplicitHospitalConfig {
      */
     @Bean
     public HospitalService springHospital(Doctor doctor) {
-        return new SpringHospital(doctor);
+        return new SpringConfigHospital(doctor);
     }
 
 }
