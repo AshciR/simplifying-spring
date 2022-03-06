@@ -1,7 +1,8 @@
 package io.richie;
 
 import io.richie.runners.DependencyInjectedRunner;
-import io.richie.runners.SpringRunner;
+import io.richie.runners.SpringExplicitConfigRunner;
+import io.richie.runners.SpringImplicitConfigRunner;
 import io.richie.runners.TightlyCoupledRunner;
 
 public class Main {
@@ -29,12 +30,14 @@ public class Main {
             case "-d":
                 new DependencyInjectedRunner().run();
                 break;
-            case "-s":
-                new SpringRunner().run();
+            case "-e":
+                new SpringExplicitConfigRunner().run();
+                break;
+            case "-i":
+                new SpringImplicitConfigRunner().run();
                 break;
             default:
-                System.out.println("Not Ready yet");
-                break;
+                throw new RuntimeException("The argument you provided is not associated with a Runner");
         }
     }
 }

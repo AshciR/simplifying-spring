@@ -5,7 +5,7 @@ import io.richie.services.HospitalService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class SpringRunner implements Runner {
+public class SpringExplicitConfigRunner implements Runner {
     @Override
     public void run() {
 
