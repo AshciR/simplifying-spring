@@ -1,9 +1,6 @@
 package io.richie;
 
-import io.richie.runners.DependencyInjectedRunner;
-import io.richie.runners.SpringExplicitConfigRunner;
-import io.richie.runners.SpringImplicitConfigRunner;
-import io.richie.runners.TightlyCoupledRunner;
+import io.richie.runners.*;
 
 public class Main {
 
@@ -13,7 +10,8 @@ public class Main {
         // will be the one that determines which runner to use
         String runnerArg = args[0];
 
-        determineWhichRunnerToUse(runnerArg);
+        Runner runner = determineWhichRunnerToUse(runnerArg);
+        runner.run();
     }
 
     /**
@@ -22,20 +20,16 @@ public class Main {
      *
      * @param runnerArg the type of runner you want
      */
-    private static void determineWhichRunnerToUse(String runnerArg) {
+    static Runner determineWhichRunnerToUse(String runnerArg) {
         switch (runnerArg) {
             case "-t":
-                new TightlyCoupledRunner().run();
-                break;
+                return new TightlyCoupledRunner();
             case "-d":
-                new DependencyInjectedRunner().run();
-                break;
+                return new DependencyInjectedRunner();
             case "-e":
-                new SpringExplicitConfigRunner().run();
-                break;
+                return new SpringExplicitConfigRunner();
             case "-i":
-                new SpringImplicitConfigRunner().run();
-                break;
+                return new SpringImplicitConfigRunner();
             default:
                 throw new RuntimeException("The argument you provided is not associated with a Runner");
         }
