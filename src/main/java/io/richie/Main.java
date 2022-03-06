@@ -17,7 +17,7 @@ public class Main {
     }
 
     /**
-     * Because we're showing 3 ways to create and run an application
+     * Because we're showing multiple ways to create and run an application
      * we want a method to use them interchangeably
      *
      * @param runnerArg the type of runner you want
